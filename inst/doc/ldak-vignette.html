@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>LDAK vignette</title>
+
+<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">LDAK vignette</h1>
+
+
+
+<p>The <code>flexible_cfdr</code> function requires as input the indices of an independent subset of SNPs. These indices indicate the <code>(p,q)</code> pairs considered independent observations for the purpose of the KDE fitting procedure.</p>
+<p>In practice, we identify independent SNPs as those assigned a non-zero weighting by the <a href="https://dougspeed.com/ldak/">LDAK package’s</a> weighting calculation <a href="https://dougspeed.com/calculate-weightings/">procedure</a>. These weightings were originally developed as a means of adjusting for the unequal tagging of (causal) SNPs across the genome when estimating heritability. The calculation procedure requires haplotype information, which we obtain in the form of the 1000 Genomes (1000G) Phase 3 data.</p>
+<p>The purpose of this vignette is to sketch out our own approach to generating LDAK weightings for use in <code>fcfdr</code>. Whilst RMarkdown was used to generate this HTML document, the code snippets contained in this vignette are intended to serve as static illustrations and are not intended to be run without further modification.</p>
+<p>This workflow was written with the use of LDAK <code>v5.1</code> (download <a href="https://dougspeed.com/downloads/">here</a>) and PLINK <code>v1.90b6.21 64-bit (19 Oct 2020)</code> (download <a href="https://www.cog-genomics.org/plink/2.0/">here</a>). We also use code from the R packages <a href="https://privefl.github.io/bigsnpr/">bigsnpr</a> and <a href="https://rdatatable.gitlab.io/data.table/">data.table</a>.</p>
+<hr />
+<div id="optional-obtaining-and-processing-the-1000g-data" class="section level2">
+<h2>Optional: Obtaining and processing the 1000G data</h2>
+<p><em>NB: In this section we discuss how to obtain and process haplotype data from the 1000G project. We have made available the end result, the quality-controlled, European-only data, as a ~280MB download at <a href="https://doi.org/10.5281/zenodo.4709547">https://doi.org/10.5281/zenodo.4709547</a>. If your principal p-values were taken from a GWAS conducted in a European population, you can skip the steps here and use the files in the download instead. You will still have to run LDAK. Note that the data use coordinates from the hg19 genome assembly.</em></p>
+<p>We first download the 1000G Phase 3 data in the <code>vcf</code> format. These data use the <code>hg19</code> genome assembly for SNP coordinates.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">22</span><span class="dt">}</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">wget</span> <span class="at">-O</span> <span class="st">&quot;chr&quot;</span><span class="va">$i</span><span class="st">&quot;.vcf.gz&quot;</span> <span class="st">&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chr&quot;</span><span class="va">$i</span><span class="st">&quot;.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="at">-O</span> <span class="st">&quot;chrX.vcf.gz&quot;</span> <span class="st">&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chrX.phase3_shapeit2_mvncall_integrated_v1b.20130502.genotypes.vcf.gz&quot;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="at">-O</span> <span class="st">&quot;chrY.vcf.gz&quot;</span> <span class="st">&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chrY.phase3_integrated_v2a.20130502.genotypes.vcf.gz&quot;</span></span></code></pre></div>
+<p>Subsequent processing depends on the data being in the PLINK-compatible <code>bed</code>, <code>bim</code>, and <code>fam</code> file formats. We use PLINK to convert the <code>vcf</code> files to these formats.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">22</span><span class="dt">}</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">plink</span> <span class="at">--vcf</span> <span class="st">&quot;chr&quot;</span><span class="va">$i</span><span class="st">&quot;.vcf.gz&quot;</span> <span class="at">--make-bed</span> <span class="at">--out</span> <span class="st">&quot;chr&quot;</span><span class="va">$i</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">plink</span> <span class="at">--vcf</span> chrX.vcf.gz <span class="at">--make-bed</span> <span class="at">--out</span> chrX</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">plink</span> <span class="at">--vcf</span> chrY.vcf.gz <span class="at">--make-bed</span> <span class="at">--out</span> chrY</span></code></pre></div>
+<p>The 1000G haplotype data were obtained by sequencing individuals from a variety of populations. In practice, we take a subset of the 1000G samples to ensure that the ancestry of the individuals from which we obtain haplotype data matches the ancestry of the individuals in the GWAS of interest (from which our principal p-values come). Sample ancestry information for the 1000G project can be found at the <a href="https://www.internationalgenome.org/data-portal/sample">data portal</a> of the International Genome Sample Resource.</p>
+<p>We specify the desired sample IDs in a <code>fam</code> file. The <code>fam</code> files generated from the <code>vcf</code> files by <code>plink --make-bed</code> should be identical for all chromosomes, so we use a single custom <code>fam</code> file, <code>euro.fam</code>, to downsample all files. <code>euro.fam</code> was obtained by subsetting <code>chr1.fam</code> to retain only those entries with European sample IDs. We write the new files out to the directory <code>euro_only</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">22</span><span class="dt">}</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">plink</span> <span class="at">--bfile</span> <span class="st">&quot;chr&quot;</span><span class="va">$i</span> <span class="at">--keep</span> euro.fam <span class="at">--make-bed</span> <span class="at">--silent</span> <span class="at">--out</span> <span class="st">&quot;euro_only/chr&quot;</span><span class="va">$i</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">plink</span> <span class="at">--bfile</span> chrX <span class="at">--keep</span> euro.fam <span class="at">--make-bed</span> <span class="at">--silent</span> <span class="at">--out</span> euro_only/chrX</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">plink</span> <span class="at">--bfile</span> chrY <span class="at">--keep</span> euro.fam <span class="at">--make-bed</span> <span class="at">--silent</span> <span class="at">--out</span> euro_only/chrY</span></code></pre></div>
+<p>The <code>fam</code> files omit sex information. This is problematic only when we wish to carry out QC on the Y chromosome SNPs: PLINK drops heterozygous Y genotypes if we do not affirm the sex of the samples in <code>chrY.fam</code>. We do this by changing the values in the sex code column from 0 (‘unknown’) to 1 (‘male’).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">&#39;s/0 0 0 -9/0 0 1 -9/&#39;</span> euro_only/chrY.fam</span></code></pre></div>
+<p>We then use a function from the R package <code>bigsnpr</code> to carry out some basic QC on the 1000G data and write out the duly filtered data to another directory, <code>euro_only_qc</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">22</span>) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       bigsnpr<span class="sc">::</span><span class="fu">snp_plinkQC</span>(<span class="at">plink.path =</span> <span class="st">&#39;/bin/plink&#39;</span>, <span class="at">prefix.in =</span> <span class="fu">paste0</span>(<span class="st">&#39;euro_only/chr&#39;</span>, i),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">prefix.out =</span> <span class="fu">paste0</span>(<span class="st">&#39;euro_only_qc/chr&#39;</span>, i),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">geno =</span> <span class="dv">0</span>, <span class="at">maf =</span> <span class="fl">0.01</span>, <span class="at">hwe =</span> <span class="fl">1e-10</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>bigsnpr<span class="sc">::</span><span class="fu">snp_plinkQC</span>(<span class="at">plink.path =</span> <span class="st">&#39;/bin/plink&#39;</span>, <span class="at">prefix.in =</span> <span class="st">&#39;euro_only/chrX&#39;</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">prefix.out =</span> <span class="st">&#39;euro_only_qc/chrX&#39;</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">geno =</span> <span class="dv">0</span>, <span class="at">maf =</span> <span class="fl">0.01</span>, <span class="at">hwe =</span> <span class="fl">1e-10</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>bigsnpr<span class="sc">::</span><span class="fu">snp_plinkQC</span>(<span class="at">plink.path =</span> <span class="st">&#39;/bin/plink&#39;</span>, <span class="at">prefix.in =</span> <span class="st">&#39;euro_only/chrY&#39;</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                        <span class="at">prefix.out =</span> <span class="st">&#39;euro_only_qc/chrY&#39;</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                        <span class="at">geno =</span> <span class="dv">0</span>, <span class="at">maf =</span> <span class="fl">0.01</span>, <span class="at">hwe =</span> <span class="fl">1e-10</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="joining-the-1000g-and-gwas-snps" class="section level2">
+<h2>Joining the 1000G and GWAS SNPs</h2>
+<p><em>NB: The following processing was carried out with a GWAS containing only autosomal SNPs, so we omit reference to the sex chromosomes henceforth.</em></p>
+<p>If you skipped the previous section on processing the 1000G data then you can download our pre-processed files:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://zenodo.org/record/4709547/files/euro_only_qc.tar.gz</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xvf</span> euro_only_qc.tar</span></code></pre></div>
+<p>For the purpose of fitting the KDE in <code>flexible_cfdr</code> we care only about the dependence structure of the SNPs at which our <code>p</code> and <code>q</code> values were obtained, so we filter the 1000G SNPs to retain those for which we have GWAS p-values. Ideally, the 1000G SNPs would form a superset of those in the GWAS, but this is typically not the case; with ~5.5 million SNPs in our GWAS we would expect to lose several tens of thousands of SNPs. The absence of this relatively paltry number of SNPs should have a neglible influence upon the KDE.</p>
+<p>To filter the SNPs we use <code>plink --extract</code>, which allows one to extract SNPs based on:</p>
+<ol style="list-style-type: decimal">
+<li>SNP ID (i.e. rsID); or</li>
+<li>SNP genomic coordinates</li>
+</ol>
+<p>rsIDs are not always consistent between data sets and we have found that extracting SNPs using genomic coordinates typically yields a larger intersection of 1000G and GWAS SNPs. Thus we use <code>plink --extract</code> with the <code>--range</code> argument (<a href="https://zzz.bwh.harvard.edu/plink/dataman.shtml#extract">documentation here</a>), which requires that we pass a white space-separated text file specifying a list of genomic ‘ranges’ (hereafter the ‘range file’) in rows in the format <code>chr bp bp ID</code>. In our use case, each SNP corresponds to a range, albeit one of length one: the first and second <code>bp</code> columns which give the start and end coordinates of the range are duplicated. We use rsIDs as range identifiers, but these are essentially superfluous when using the <code>--range</code> argument and will not be used by <code>plink</code> to filter the SNPs.</p>
+<p>The coordinates of the GWAS SNPs are usually readily available and a simple approach to generating the requisite range files for <code>plink --extract</code> would copy the genomic coordinates of each SNP to the appropriate chromosome-specific range file (albeit in the <code>plink</code>-compliant <code>chr bp bp rsID</code> format). However, this approach overlooks the possibility that there exist multiple SNPs with different reference/alternative allele pairings at the same locus, that is, duplicates.</p>
+<p>We can account for this when preparing the range files by first joining the 1000G SNPs in each chromosome’s <code>bim</code> file data to our GWAS SNPs and checking that the allele pairings match. This approach also allows us to remove duplicated rows in the range files; as noted above, it is not essential for a good fit that we retain <em>every</em> SNP.</p>
+<p>The following exemplifies the sort of R code one can use to write out the range files whilst carrying out the aforementioned checks.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">&quot;mkdir plinkRanges&quot;</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">&quot;mkdir filtered&quot;</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">&quot;mkdir ldak&quot;</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># We assume this contains columns SNPID, CHR19 and BP19 (so-called because of hg19), REF, and ALT</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># note that gwas_dat needs to be a data.table</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>gwas_dat <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;gwas_sum_stats.tsv.gz&#39;</span>, <span class="at">sep =</span> <span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>, <span class="at">header =</span> T)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterating over chromosomal bim files</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">22</span>) {</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># bim files have no header</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  bim_dat <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="fu">sprintf</span>(<span class="st">&#39;euro_only_qc/chr%d.bim&#39;</span>, i), <span class="at">sep =</span> <span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>, <span class="at">header =</span> F, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&#39;Chr&#39;</span>, <span class="st">&#39;ID&#39;</span>, <span class="st">&#39;Cm&#39;</span>, <span class="st">&#39;BP19&#39;</span>, <span class="st">&#39;A1&#39;</span>, <span class="st">&#39;A2&#39;</span>) )</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  bim_join <span class="ot">&lt;-</span> <span class="fu">merge</span>(bim_dat, gwas_dat[CHR19 <span class="sc">==</span> i], <span class="at">by.x =</span> <span class="st">&#39;BP19&#39;</span>, <span class="at">by.y =</span> <span class="st">&#39;BP19&#39;</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Make sure alleles match, although for two-sided association p-values we don&#39;t care whether ref/alt is reversed</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  bim_join <span class="ot">&lt;-</span> bim_join[(REF <span class="sc">==</span> A1 <span class="sc">&amp;</span> ALT <span class="sc">==</span> A2) <span class="sc">|</span> (REF <span class="sc">==</span> A2 <span class="sc">&amp;</span> ALT <span class="sc">==</span> A1)]</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  bim_join <span class="ot">&lt;-</span> bim_join[, .(Chr, BP19, BP19, SNPID)]</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">any</span>(<span class="fu">duplicated</span>(bim_join, <span class="at">by=</span><span class="st">&#39;BP19&#39;</span>))) {</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">warning</span>(<span class="fu">sprintf</span>(<span class="st">&#39;%d duplicates removed from output&#39;</span>, <span class="fu">sum</span>(<span class="fu">duplicated</span>(bim_join, <span class="at">by =</span> <span class="st">&#39;BP19&#39;</span>))))</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Remove duplicates</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  bim_join <span class="ot">&lt;-</span> <span class="fu">unique</span>(bim_join, <span class="at">by=</span><span class="st">&#39;BP19&#39;</span>)</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fwrite</span>(bim_join, <span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">&#39;plinkRanges/chr%d.tsv&#39;</span>, i), <span class="at">row.names =</span> F, <span class="at">sep =</span> <span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>, <span class="at">col.names =</span> F, <span class="at">quote =</span> F)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Note that we took care to use the <code>hg19</code> assembly coordinates to match the assembly used in the 1000G data we downloaded above.</p>
+<p>Using these range files we can now filter the 1000G data.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">22</span><span class="dt">}</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">plink</span> <span class="at">--silent</span> <span class="at">--bfile</span> <span class="st">&quot;euro_only_qc/chr&quot;</span><span class="va">$i</span> <span class="at">--extract</span> <span class="st">&quot;plinkRanges/chr&quot;</span><span class="va">$i</span><span class="st">&quot;.tsv&quot;</span> <span class="at">--range</span> <span class="at">--make-bed</span> <span class="at">--out</span> <span class="st">&quot;filtered/chr&quot;</span><span class="va">$i</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<hr />
+</div>
+<div id="running-the-ldak-weighting-calculation-procedure" class="section level2">
+<h2>Running the LDAK weighting calculation procedure</h2>
+<p>The weighting calculation procedure entails a preprocessing step, <code>ldak --cut-weights</code>, and a calculation step, <code>ldak --calc-weights-all</code>. We refer the reader to the <a href="https://dougspeed.com/calculate-weightings/">LDAK documentation</a> for further guidance. An idiosyncracy of our approach is that we process the data in a set of chromosome-specific files. This is an artifact of the format of the 1000G data.</p>
+<p>We create the directory <code>ldak</code> and within it subdirectories labelled <code>chrx</code>, where x ranges from 1 to 22, to hold the results of the procedure. (note that you may have to replace the executable <code>ldak</code> with <code>ldak5.1.linux</code> depending on how you downloaded the LDAK software).</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">22</span><span class="dt">}</span><span class="kw">;</span> <span class="cf">do</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">ldak</span> <span class="at">--cut-weights</span> <span class="st">&quot;ldak/chr&quot;</span><span class="va">$i</span> <span class="at">--bfile</span> <span class="st">&quot;filtered/chr&quot;</span><span class="va">$i</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">ldak</span> <span class="at">--calc-weights-all</span> <span class="st">&quot;ldak/chr&quot;</span><span class="va">$i</span> <span class="at">--bfile</span> <span class="st">&quot;filtered/chr&quot;</span><span class="va">$i</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<p>LDAK will write out the procedure’s results to files named <code>ldak/chrx/weights.all</code>. We join these chromosome-specific files into one.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">22</span><span class="dt">}</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> <span class="co"># We omit the header in each file</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sed</span> <span class="st">&quot;s/$/ </span><span class="va">$i</span><span class="st">/&quot;</span> <span class="op">&lt;(</span><span class="fu">tail</span> <span class="at">-n</span> +2 <span class="st">&quot;ldak/chr</span><span class="va">$i</span><span class="st">/weights.all&quot;</span><span class="op">)</span> <span class="op">&gt;&gt;</span> <span class="st">&quot;ldak/combined_weights.all&quot;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># We add back in a single header for the combined file</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">&#39;1 i\Predictor Weight Neighbours Tagging Info Check Chr&#39;</span> <span class="st">&quot;ldak/combined_weights.all&quot;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="using-the-ldak-weightings-in-flexible_fcfdr" class="section level2">
+<h2>Using the LDAK weightings in <code>flexible_fcfdr</code></h2>
+<p>In practice, it is necessary to merge the weightings contained in <code>combined_weights.all</code> back into the file containing the <code>p</code> and <code>q</code> values so that all three vectors can be made available to <code>flexible_cfdr</code>. This poses a problem, however, as the rsIDs in the <code>Predictor</code> column of <code>combined_weights.all</code> are derived from the 1000G <code>bim</code> files, not the GWAS file rsIDs specified in the range files (which are ignored by <code>plink</code> as noted above). Merging 1000G and GWAS SNPs using genomic coordinates is to be preferred over the use of rsIDs as the latter are not always consistent between data sets.</p>
+<p><code>combined_weights.all</code> as written out by LDAK does not contain SNP basepair coordinates. This means we must use the <code>bim</code> files contained in the <code>filtered/chrx</code> directories to recover the basepair coordinates and reference/alternative allele pairings. This can be accomplished by matching the SNPs in <code>combined_weights.all</code> to those in the <code>bim</code> files. As the rsIDs in <code>combined_weights.all</code> are derived from these <code>bim</code> files, it is appropriate in this case to merge these data with the use of rsIDs. We provide the following snippets as an example of how this can be accomplished.</p>
+<p>To simplify matters, we first concatenate all chromosomal <code>bim</code> files.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">22</span><span class="dt">}</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span> <span class="st">&quot;filtered/chr&quot;</span><span class="va">$i</span><span class="st">&quot;.bim&quot;</span> <span class="op">&gt;&gt;</span> <span class="st">&quot;filtered/chr_all.bim&quot;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<p>We then add the genomic metadata we need to the <code>combined_weights.all</code> LDAK output file.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>bim_dat <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;filtered/chr_all.bim&#39;</span>, <span class="at">sep =</span> <span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>, <span class="at">header =</span> F, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&#39;Chr&#39;</span>, <span class="st">&#39;ID&#39;</span>, <span class="st">&#39;Cm&#39;</span>, <span class="st">&#39;BP19&#39;</span>, <span class="st">&#39;A1&#39;</span>, <span class="st">&#39;A2&#39;</span>))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>weights_dat <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;ldak/combined_weights.all&#39;</span>, <span class="at">sep =</span> <span class="st">&#39; &#39;</span>, <span class="at">header =</span> T)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows with a missing ID or weight value</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>weights_dat <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(weights_dat, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&#39;Predictor&#39;</span>, <span class="st">&#39;Weight&#39;</span>))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>join_dat <span class="ot">&lt;-</span> <span class="fu">merge</span>(weights_dat, bim_dat[, .(ID, Chr, BP19, A1, A2)], <span class="at">all.x =</span> T, <span class="at">by.x =</span> <span class="fu">c</span>(<span class="st">&#39;Predictor&#39;</span>, <span class="st">&#39;Chr&#39;</span>), <span class="at">by.y =</span> <span class="fu">c</span>(<span class="st">&#39;ID&#39;</span>, <span class="st">&#39;Chr&#39;</span>), <span class="at">sort =</span> F)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">fwrite</span>(join_dat, <span class="at">file =</span> <span class="st">&#39;ldak/combined_weights_meta.all&#39;</span>, <span class="at">sep =</span> <span class="st">&#39; &#39;</span>, <span class="at">col.names =</span> T, <span class="at">row.names =</span> F, <span class="at">quote =</span> F)</span></code></pre></div>
+<p>The format of the file in which your <code>p</code> and <code>q</code> are stored will of course vary, but the snippet below illustrates how <code>combined_weights_meta.all</code> can be merged with it.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>weights_dat <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;ldak/combined_weights_meta.all&#39;</span>, <span class="at">sep =</span> <span class="st">&#39; &#39;</span>, <span class="at">header =</span> T, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">&#39;Predictor&#39;</span>, <span class="st">&#39;Weight&#39;</span>, <span class="st">&#39;Chr&#39;</span>, <span class="st">&#39;BP19&#39;</span>, <span class="st">&#39;A1&#39;</span>, <span class="st">&#39;A2&#39;</span>))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># We assume this contains columns SNPID, CHR19 and BP19 (so-called because of hg19), REF, and ALT</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>gwas_dat <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;gwas_sum_stats.tsv.gz&#39;</span>, <span class="at">sep =</span> <span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>, <span class="at">header =</span> T)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>gwas_dat <span class="ot">&lt;-</span> <span class="fu">merge</span>(gwas_dat, weights_dat, <span class="at">by.x =</span> <span class="fu">c</span>(<span class="st">&#39;CHR19&#39;</span>, <span class="st">&#39;BP19&#39;</span>), <span class="at">by.y =</span> <span class="fu">c</span>(<span class="st">&#39;Chr&#39;</span>, <span class="st">&#39;BP19&#39;</span>), <span class="at">sort =</span> F)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows where the ref/alt allele pairing differs from that already present</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>gwas_dat <span class="ot">&lt;-</span> gwas_dat[((REF <span class="sc">==</span> A1 <span class="sc">&amp;</span> ALT <span class="sc">==</span> A2) <span class="sc">|</span> (REF <span class="sc">==</span> A2 <span class="sc">&amp;</span> ALT <span class="sc">==</span> A1))]</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop now-redundant allele columns</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>gwas_dat[, <span class="fu">c</span>(<span class="st">&#39;A1&#39;</span>, <span class="st">&#39;A2&#39;</span>) <span class="sc">:</span><span class="er">=</span> <span class="cn">NULL</span> ]</span></code></pre></div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
